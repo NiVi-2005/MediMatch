@@ -4,3 +4,7 @@ uploads/
 *.log
 dist/
 .DS_Store
+logic.txt
+api_call_medimatch.txt
+responses.txt
+.env.example
