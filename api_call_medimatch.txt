@@ -1,0 +1,93 @@
+
+Login datas
+
+superadmin....
+email:superadmin@medconnect.com .....Password:superadmin123
+
+admin....
+email:admin.apollo@medconnect.com .......password:admin123
+
+user....
+email:user@medconnect.com .....password:user123
+
+
+
+
+
+http://localhost:5000
+
+
+User login,register.....
+
+/api/auth/login
+/api/auth/register
+
+
+Medicine.....
+create medicines
+/api/medicines/
+
+get all medicines
+/api/medicines/
+
+get specific medicine...update,delete a medicine
+/api/medicines/id
+
+Pharmacies....
+create pharmacy
+/api/pharmacies/
+
+get all the pharmacies
+/api/pharmacies/
+
+get specific pharmacy....update,delete a pharmacy
+/api/pharmacies/id
+
+
+Inventory....
+create inventory
+/api/inventory/
+
+get all inventories
+/api/inventory/
+
+get specific inventory....update,delete a inventory
+/api/inventory/id
+
+alert low stock
+/api/inventory/alerts/low-stock
+
+
+Reservations....
+
+create reservation
+/api/reservations/
+
+get all reservations
+/api/reservations/
+
+get specific reservation....update,delete a reservation
+/api/reservations/id
+
+
+get my reservations
+/api/reservations/my
+
+create(upload) prescription
+/api/reservations/:id/prescription/
+
+get the uploaded prescription
+/api/reservations/:id/prescription/
+
+update status like get it by 5pm
+/api/reservations/:id/status
+
+
+
+
+
+
+
+
+
+

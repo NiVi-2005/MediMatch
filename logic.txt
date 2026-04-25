@@ -1,0 +1,19 @@
+cd medconnect
+
+# 2. Install all packages (both frontend + backend)
+npm run install:all
+
+# 3. Seed the database with sample data
+npm run seed
+
+# 4a. Start backend (Terminal 1)
+npm run dev:backend     # → http://localhost:5000
+
+# 4b. Start frontend (Terminal 2)
+npm run dev:frontend    # → http://localhost:5173
+
+🔐 Ready-to-use login credentials
+RoleEmailPassword👑 Super Adminsuperadmin@medconnect.comsuperadmin123🏥 Apollo Pharmacyadmin.apollo@medconnect.comadmin123🏥 MedPlusadmin.medplus@medconnect.comadmin123👤 Patientuser@medconnect.comuser123
+
+📦 What's in the backend
+FilePurposeserver.jsExpress app, CORS, all routes wiredmodels/User, Pharmacy, Medicine, Inventory, Reservation schemascontrollers/All business logic — auth, CRUD, status updates, prescription file handlingmiddleware/auth.jsJWT verification + role-based authorize()middleware/upload.jsMulter — accepts JPG/PNG/PDF up to 5MBseed.jsCreates 4 pharmacies, 15 medicines, 4 admin users, 1 sample patient.envPort, MongoDB URI, JWT secret — pre-configured for local dev
