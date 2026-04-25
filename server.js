@@ -40,12 +40,18 @@ app.get('/api/health', (req, res) => {
 })
 
 // ─── SERVE FRONTEND IN PRODUCTION ─────────────────────────────────────────────
-if (process.env.NODE_ENV === 'production') {
-  app.use(express.static(path.join(__dirname, '../medconnect-frontend/dist')))
-  app.get('*', (req, res) => {
-    res.sendFile(path.resolve(__dirname, '../medconnect-frontend/dist', 'index.html'))
-  })
-}
+// if (process.env.NODE_ENV === 'production') {
+//   app.use(express.static(path.join(__dirname, '../medconnect-frontend/dist')))
+//   app.get('*', (req, res) => {
+//     res.sendFile(path.resolve(__dirname, '../medconnect-frontend/dist', 'index.html'))
+//   })
+// }
+
+
+//live backend onrender
+app.get('/', (req, res) => {
+  res.send('MedConnect Backend API Running 🚀')
+})
 
 // ─── 404 HANDLER ──────────────────────────────────────────────────────────────
 app.use((req, res) => {
