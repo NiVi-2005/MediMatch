@@ -49,9 +49,11 @@ app.get('/api/health', (req, res) => {
 
 
 //live backend onrender
-app.get('/', (req, res) => {
-  res.send('MedConnect Backend API Running 🚀')
-})
+// const PORT = process.env.PORT || 5000
+
+// app.listen(PORT, () => {
+//   console.log(`MedConnect Server running on port ${PORT}`)
+// })
 
 // ─── 404 HANDLER ──────────────────────────────────────────────────────────────
 app.use((req, res) => {
