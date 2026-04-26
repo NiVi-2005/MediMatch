@@ -12,7 +12,7 @@ connectDB()
 const app = express()
 
 app.use(cors({
-  origin: ['https://medi-match-omega.vercel.app','http://localhost:5173', 'http://localhost:3000', 'http://localhost:4173'],
+  origin: [process.env.FRONTEND_URI,'http://localhost:5173', 'http://localhost:3000', 'http://localhost:4173'],
   credentials: true,
 }))
 
