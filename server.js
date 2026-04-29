@@ -12,7 +12,7 @@ connectDB()
 const app = express()
 
 app.use(cors({
-  origin: [process.env.FRONTEND_URI,'http://localhost:5173', 'http://localhost:3000', 'http://localhost:4173'],
+  origin: [process.env.FRONTEND_URI,"https://medi-match-omega.vercel.app",'http://localhost:5173', 'http://localhost:3000', 'http://localhost:4173'],
   credentials: true,
 }))
 
@@ -20,10 +20,13 @@ app.use(cors({
 
 app.use(cors({
   origin: function (origin, callback) {
-    if (!origin || allowedOrigins.includes(origin)) {
-      callback(null, true);
+    // allow server-to-server or Postman requests
+    if (!origin) return callback(null, true);
+
+    if (allowedOrigins.includes(origin)) {
+      return callback(null, true);
     } else {
-      callback(new Error("CORS not allowed"));
+      return callback(new Error("CORS not allowed"));
     }
   },
   credentials: true
