@@ -23,19 +23,33 @@ const allowedOrigins = [
   "http://localhost:3000"
 ];
 
-app.use(cors({
-  origin: function (origin, callback) {
-    // allow server-to-server or Postman requests
-    if (!origin) return callback(null, true);
 
-    if (allowedOrigins.includes(origin)) {
-      return callback(null, true);
+app.use(cors({
+  origin: (origin, callback) => {
+    console.log("Request Origin:", origin);
+
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
     } else {
-      return callback(new Error("CORS not allowed"));
+      callback(null, false); // DON'T throw error
     }
   },
   credentials: true
 }));
+
+// app.use(cors({
+//   origin: function (origin, callback) {
+//     // allow server-to-server or Postman requests
+//     if (!origin) return callback(null, true);
+
+//     if (allowedOrigins.includes(origin)) {
+//       return callback(null, true);
+//     } else {
+//       return callback(new Error("CORS not allowed"));
+//     }
+//   },
+//   credentials: true
+// }));
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
