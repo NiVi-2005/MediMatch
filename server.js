@@ -59,10 +59,10 @@ app.use(express.urlencoded({ extended: true }))
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')))
 
 // ─── ROUTES ───────────────────────────────────────────────────────────────────
-app.use('/api/auth',         require('./routes/auth'))
-app.use('/api/pharmacies',   require('./routes/pharmacies'))
-app.use('/api/medicines',    require('./routes/medicines'))
-app.use('/api/inventory',    require('./routes/inventory'))
+app.use('/api/auth', require('./routes/auth'))
+app.use('/api/pharmacies', require('./routes/pharmacies'))
+app.use('/api/medicines', require('./routes/medicines'))
+app.use('/api/inventory', require('./routes/inventory'))
 app.use('/api/reservations', require('./routes/reservations'))
 
 // ─── HEALTH CHECK ─────────────────────────────────────────────────────────────
