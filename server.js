@@ -17,7 +17,6 @@ const app = express()
 // }))
 
 
-
 const allowedOrigins = [
   process.env.FRONTEND_URI,
   "http://localhost:5173",
@@ -26,15 +25,17 @@ const allowedOrigins = [
 
 app.use(cors({
   origin: function (origin, callback) {
-    if (!origin || allowedOrigins.includes(origin)) {
-      callback(null, true);
+    // allow server-to-server or Postman requests
+    if (!origin) return callback(null, true);
+
+    if (allowedOrigins.includes(origin)) {
+      return callback(null, true);
     } else {
-      callback(new Error("CORS not allowed"));
+      return callback(new Error("CORS not allowed"));
     }
   },
-  credentials: true,
+  credentials: true
 }));
-
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
